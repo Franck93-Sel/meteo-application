@@ -159,6 +159,18 @@ form {
   text-align: center;
   color: white;
   min-width: 64px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.hourly-card:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.hourly-card.active {
+  background: rgba(0, 212, 255, 0.35);
+  border: 1px solid rgba(0, 212, 255, 0.7);
+  transform: translateY(-2px);
 }
 
 .hourly-hour {

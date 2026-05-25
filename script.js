@@ -119,6 +119,24 @@ function renderHourlyCarousel(slots) {
       );
     })
     .join("");
+
+  // Sélection au clic — une seule carte active à la fois
+  hourlyCarousel.querySelectorAll(".hourly-card").forEach(function (card) {
+    card.addEventListener("click", function () {
+      hourlyCarousel.querySelectorAll(".hourly-card").forEach(function (c) {
+        c.classList.remove("active");
+      });
+      card.classList.add("active");
+    });
+  });
+
+  // Défilement horizontal à la molette (desktop)
+  hourlyCarousel.addEventListener("wheel", function (e) {
+    if (e.deltaY !== 0) {
+      e.preventDefault();
+      hourlyCarousel.scrollLeft += e.deltaY;
+    }
+  }, { passive: false });
 }
 
 /** Remplit le bloc 5 jours */
