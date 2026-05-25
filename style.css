@@ -1,25 +1,26 @@
 body {
   margin: 0;
-  min-height: 100vh; /* FIX: était height: 100vh — le fond s'étire maintenant */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url(./img/clouds-4750959_1280.jpg) center/cover fixed;
+  background: url(./img/clouds-4750959_1280.jpg) center/cover;
+  background-attachment: fixed;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .app {
   border: solid 3px rgb(224, 154, 23);
   border-radius: 10px;
-  width: 500px;
-  height: auto; /* FIX: était 400px fixe */
+  width: min(500px, 92vw);
+  height: auto;
   min-height: 400px;
-  margin: 50px auto;
+  margin: 30px auto;
   text-align: center;
   display: flex;
   flex-direction: column;
-  padding: 20px 20px 24px;
+  padding: 20px 16px 24px;
   align-items: center;
   background: linear-gradient(
     145deg,
@@ -30,12 +31,13 @@ body {
   box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  box-sizing: border-box;
 }
 
 h1 {
   color: rgb(224, 154, 23);
   text-align: center;
-  font-size: 3rem;
+  font-size: clamp(2rem, 8vw, 3rem);
   margin: 0 0 16px;
 }
 
@@ -43,8 +45,33 @@ form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   text-align: center;
+}
+
+input[type="text"] {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  background-color: rgb(224, 154, 23);
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(200, 135, 10);
 }
 
 /* ==========================================
@@ -247,4 +274,37 @@ form {
 
 .temp-max {
   font-weight: bold;
+}
+
+/* ==========================================
+   Responsive — petits écrans (≤ 400px)
+   ========================================== */
+
+@media (max-width: 400px) {
+  .app {
+    margin: 16px auto;
+    padding: 16px 12px 20px;
+  }
+
+  .current-details {
+    gap: 10px;
+    font-size: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .daily-row {
+    font-size: 0.78rem;
+    gap: 5px;
+    padding: 5px 8px;
+  }
+
+  .daily-detail {
+    font-size: 0.7rem;
+  }
+
+  .daily-icon {
+    width: 26px;
+    height: 26px;
+  }
 }
