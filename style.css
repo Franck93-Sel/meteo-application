@@ -1,11 +1,11 @@
 body {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh; /* FIX: était height: 100vh — le fond s'étire maintenant */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url(./img/clouds-4750959_1280.jpg) center/cover;
+  background: url(./img/clouds-4750959_1280.jpg) center/cover fixed;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -13,12 +13,13 @@ body {
   border: solid 3px rgb(224, 154, 23);
   border-radius: 10px;
   width: 500px;
-  height: 400px;
+  height: auto; /* FIX: était 400px fixe */
+  min-height: 400px;
   margin: 50px auto;
   text-align: center;
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
+  padding: 20px 20px 24px;
   align-items: center;
   background: linear-gradient(
     145deg,
@@ -35,6 +36,7 @@ h1 {
   color: rgb(224, 154, 23);
   text-align: center;
   font-size: 3rem;
+  margin: 0 0 16px;
 }
 
 form {
@@ -45,12 +47,17 @@ form {
   text-align: center;
 }
 
+/* ==========================================
+   Bloc résultat global (animation d'entrée)
+   ========================================== */
+
 .weather-result {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
   margin-top: 20px;
+  width: 100%;
   opacity: 0;
   transform: translateY(10px);
   transition:
@@ -63,14 +70,169 @@ form {
   transform: translateY(0);
 }
 
+/* ==========================================
+   Section 1 : Météo actuelle
+   ========================================== */
+
+.current-weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
 #icon {
   display: none;
   width: 80px;
   height: 80px;
-  margin: 10px auto;
+  margin: 0 auto;
 }
 
 #resultat {
   font-size: 1.1rem;
   color: white;
+  margin: 0;
+}
+
+.current-details {
+  display: flex;
+  gap: 16px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 4px;
+}
+
+/* ==========================================
+   Sections communes (horaire + 5 jours)
+   ========================================== */
+
+.hourly-section,
+.daily-section {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.section-title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 10px;
+  text-align: left;
+}
+
+/* ==========================================
+   Section 2 : Carrousel horaire
+   ========================================== */
+
+.hourly-carousel {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 6px;
+}
+
+.hourly-carousel::-webkit-scrollbar {
+  height: 4px;
+}
+
+.hourly-carousel::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.hourly-carousel::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.hourly-card {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 8px 10px;
+  text-align: center;
+  color: white;
+  min-width: 64px;
+}
+
+.hourly-hour {
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.hourly-icon {
+  width: 36px;
+  height: 36px;
+}
+
+.hourly-temp {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 2px 0;
+}
+
+.hourly-detail {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+}
+
+/* ==========================================
+   Section 3 : Prévisions 5 jours
+   ========================================== */
+
+.daily-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.daily-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+  padding: 6px 10px;
+  color: white;
+  font-size: 0.85rem;
+}
+
+.daily-day {
+  width: 36px;
+  font-weight: bold;
+  text-transform: capitalize;
+  flex-shrink: 0;
+}
+
+.daily-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.daily-detail {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  flex: 1;
+}
+
+.daily-temps {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+}
+
+.temp-min {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.temp-max {
+  font-weight: bold;
 }
