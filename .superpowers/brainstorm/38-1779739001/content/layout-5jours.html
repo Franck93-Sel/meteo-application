@@ -1,0 +1,113 @@
+<h2>Comment afficher les 5 prochains jours ?</h2>
+<p class="subtitle">La section horaire sera un carrousel. Comment organiser la prévision 5 jours ?</p>
+
+<div class="cards">
+
+  <!-- Option A : Ligne de jours sous le carrousel -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a3a;padding:14px;border-radius:8px;font-family:sans-serif;">
+
+      <!-- Météo actuelle -->
+      <div style="text-align:center;color:white;margin-bottom:10px;font-size:11px;opacity:0.7;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:8px;">
+        📍 Paris · ☀️ 24°C · Ciel dégagé
+      </div>
+
+      <!-- Carrousel horaire -->
+      <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;">Aujourd'hui</div>
+      <div style="display:flex;gap:5px;margin-bottom:10px;">
+        <div style="min-width:42px;background:rgba(255,255,255,0.12);border-radius:6px;padding:5px;text-align:center;color:white;font-size:9px;border:1px solid rgba(0,212,255,0.4);">
+          <div>12h</div><div>☀️</div><div style="font-weight:bold;">22°</div>
+        </div>
+        <div style="min-width:42px;background:rgba(255,255,255,0.08);border-radius:6px;padding:5px;text-align:center;color:white;font-size:9px;">
+          <div>13h</div><div>🌤️</div><div style="font-weight:bold;">24°</div>
+        </div>
+        <div style="min-width:42px;background:rgba(255,255,255,0.08);border-radius:6px;padding:5px;text-align:center;color:white;font-size:9px;">
+          <div>14h</div><div>⛅</div><div style="font-weight:bold;">25°</div>
+        </div>
+        <div style="min-width:42px;background:rgba(255,255,255,0.08);border-radius:6px;padding:5px;text-align:center;color:white;font-size:9px;opacity:0.5;">
+          <div>15h</div><div>🌦️</div><div style="font-weight:bold;">21°</div>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,0.3);align-self:center;padding:0 2px;">→</div>
+      </div>
+
+      <!-- 5 jours -->
+      <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;">5 jours</div>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.08);border-radius:5px;padding:5px 8px;color:white;font-size:10px;">
+          <span style="width:50px;">Lun</span><span>☀️</span><span style="color:rgba(255,255,255,0.5);">16° /</span><span style="font-weight:bold;"> 26°</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.08);border-radius:5px;padding:5px 8px;color:white;font-size:10px;">
+          <span style="width:50px;">Mar</span><span>⛅</span><span style="color:rgba(255,255,255,0.5);">14° /</span><span style="font-weight:bold;"> 22°</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.08);border-radius:5px;padding:5px 8px;color:white;font-size:10px;">
+          <span style="width:50px;">Mer</span><span>🌧️</span><span style="color:rgba(255,255,255,0.5);">12° /</span><span style="font-weight:bold;"> 18°</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.08);border-radius:5px;padding:5px 8px;color:white;font-size:10px;">
+          <span style="width:50px;">Jeu</span><span>🌦️</span><span style="color:rgba(255,255,255,0.5);">13° /</span><span style="font-weight:bold;"> 20°</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.08);border-radius:5px;padding:5px 8px;color:white;font-size:10px;">
+          <span style="width:50px;">Ven</span><span>☀️</span><span style="color:rgba(255,255,255,0.5);">15° /</span><span style="font-weight:bold;"> 25°</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Tout dans une seule carte</h3>
+      <p>Carrousel horaire en haut, liste des 5 jours en dessous — tout dans le même bloc. L'appli s'agrandit en hauteur.</p>
+    </div>
+  </div>
+
+  <!-- Option B : Deux sections séparées -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a3a;padding:14px;border-radius:8px;font-family:sans-serif;">
+
+      <!-- Météo actuelle -->
+      <div style="text-align:center;color:white;margin-bottom:8px;font-size:11px;opacity:0.7;">
+        📍 Paris · ☀️ 24°C
+      </div>
+
+      <!-- Bloc horaire -->
+      <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:8px;margin-bottom:6px;border:1px solid rgba(0,212,255,0.2);">
+        <div style="font-size:9px;color:rgba(0,212,255,0.8);margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">⏱ Aujourd'hui heure par heure</div>
+        <div style="display:flex;gap:5px;">
+          <div style="min-width:42px;background:rgba(255,255,255,0.1);border-radius:5px;padding:5px;text-align:center;color:white;font-size:9px;">
+            <div>12h</div><div>☀️</div><div style="font-weight:bold;">22°</div>
+          </div>
+          <div style="min-width:42px;background:rgba(255,255,255,0.06);border-radius:5px;padding:5px;text-align:center;color:white;font-size:9px;">
+            <div>13h</div><div>🌤️</div><div style="font-weight:bold;">24°</div>
+          </div>
+          <div style="min-width:42px;background:rgba(255,255,255,0.06);border-radius:5px;padding:5px;text-align:center;color:white;font-size:9px;opacity:0.6;">
+            <div>14h</div><div>⛅</div><div style="font-weight:bold;">25°</div>
+          </div>
+          <div style="font-size:9px;color:rgba(255,255,255,0.3);align-self:center;">→</div>
+        </div>
+      </div>
+
+      <!-- Bloc 5 jours -->
+      <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:8px;border:1px solid rgba(224,154,23,0.2);">
+        <div style="font-size:9px;color:rgba(224,154,23,0.9);margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;">📅 Prévisions 5 jours</div>
+        <div style="display:flex;gap:5px;">
+          <div style="flex:1;background:rgba(255,255,255,0.06);border-radius:5px;padding:5px;text-align:center;color:white;font-size:9px;">
+            <div style="opacity:0.7;">Lun</div><div>☀️</div><div>26°</div><div style="opacity:0.5;font-size:8px;">16°</div>
+          </div>
+          <div style="flex:1;background:rgba(255,255,255,0.06);border-radius:5px;padding:5px;text-align:center;color:white;font-size:9px;">
+            <div style="opacity:0.7;">Mar</div><div>⛅</div><div>22°</div><div style="opacity:0.5;font-size:8px;">14°</div>
+          </div>
+          <div style="flex:1;background:rgba(255,255,255,0.06);border-radius:5px;padding:5px;text-align:center;color:white;font-size:9px;">
+            <div style="opacity:0.7;">Mer</div><div>🌧️</div><div>18°</div><div style="opacity:0.5;font-size:8px;">12°</div>
+          </div>
+          <div style="flex:1;background:rgba(255,255,255,0.06);border-radius:5px;padding:5px;text-align:center;color:white;font-size:9px;">
+            <div style="opacity:0.7;">Jeu</div><div>🌦️</div><div>20°</div><div style="opacity:0.5;font-size:8px;">13°</div>
+          </div>
+          <div style="flex:1;background:rgba(255,255,255,0.06);border-radius:5px;padding:5px;text-align:center;color:white;font-size:9px;">
+            <div style="opacity:0.7;">Ven</div><div>☀️</div><div>25°</div><div style="opacity:0.5;font-size:8px;">15°</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Deux blocs distincts</h3>
+      <p>Section horaire et section 5 jours clairement séparées avec leur propre titre coloré. Les 5 jours s'affichent en colonnes (carrousel aussi).</p>
+    </div>
+  </div>
+
+</div>

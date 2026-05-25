@@ -1,0 +1,162 @@
+<h2>Où afficher précipitations, humidité et vent ?</h2>
+<p class="subtitle">Ces infos peuvent apparaître à différents endroits — choisissez ce qui vous semble le plus utile</p>
+
+<div class="cards">
+
+  <!-- Option A : Uniquement dans la météo actuelle -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a3a;padding:14px;border-radius:8px;font-family:sans-serif;">
+
+      <!-- Météo actuelle enrichie -->
+      <div style="text-align:center;color:white;margin-bottom:10px;">
+        <div style="font-size:12px;opacity:0.7;margin-bottom:4px;">📍 Paris</div>
+        <div style="font-size:11px;">☀️ &nbsp;<strong>24°C</strong> &nbsp;·&nbsp; Ciel dégagé</div>
+        <div style="display:flex;justify-content:center;gap:12px;margin-top:8px;font-size:10px;color:rgba(255,255,255,0.75);">
+          <span>💧 65%</span>
+          <span>💨 18 km/h</span>
+          <span>🌧️ 0 mm</span>
+        </div>
+      </div>
+
+      <!-- Carrousel horaire (simplifié) -->
+      <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;">Aujourd'hui</div>
+      <div style="display:flex;gap:5px;margin-bottom:8px;">
+        <div style="min-width:42px;background:rgba(255,255,255,0.1);border-radius:5px;padding:5px;text-align:center;color:white;font-size:9px;">
+          <div>12h</div><div>☀️</div><div style="font-weight:bold;">22°</div>
+        </div>
+        <div style="min-width:42px;background:rgba(255,255,255,0.06);border-radius:5px;padding:5px;text-align:center;color:white;font-size:9px;">
+          <div>15h</div><div>⛅</div><div style="font-weight:bold;">25°</div>
+        </div>
+        <div style="min-width:42px;background:rgba(255,255,255,0.06);border-radius:5px;padding:5px;text-align:center;color:white;font-size:9px;opacity:0.5;">
+          <div>18h</div><div>🌦️</div><div style="font-weight:bold;">21°</div>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,0.3);align-self:center;">→</div>
+      </div>
+
+      <!-- 5 jours (simplifié) -->
+      <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;">5 jours</div>
+      <div style="display:flex;flex-direction:column;gap:3px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.06);border-radius:5px;padding:4px 8px;color:white;font-size:9px;">
+          <span style="width:35px;">Lun</span><span>☀️</span><span style="color:rgba(255,255,255,0.4);">16°</span><span style="font-weight:bold;"> 26°</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.06);border-radius:5px;padding:4px 8px;color:white;font-size:9px;">
+          <span style="width:35px;">Mar</span><span>🌧️</span><span style="color:rgba(255,255,255,0.4);">12°</span><span style="font-weight:bold;"> 18°</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Météo actuelle seulement</h3>
+      <p>Humidité, vent et précipitations affichés uniquement sous la météo du moment. Carrousel et 5 jours restent légers.</p>
+    </div>
+  </div>
+
+  <!-- Option B : Dans le carrousel horaire aussi -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a3a;padding:14px;border-radius:8px;font-family:sans-serif;">
+
+      <!-- Météo actuelle -->
+      <div style="text-align:center;color:white;margin-bottom:10px;">
+        <div style="font-size:11px;">☀️ &nbsp;<strong>24°C</strong> &nbsp;·&nbsp; Ciel dégagé</div>
+        <div style="display:flex;justify-content:center;gap:10px;margin-top:6px;font-size:10px;color:rgba(255,255,255,0.75);">
+          <span>💧 65%</span><span>💨 18 km/h</span><span>🌧️ 0 mm</span>
+        </div>
+      </div>
+
+      <!-- Carrousel horaire avec détails -->
+      <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;">Aujourd'hui</div>
+      <div style="display:flex;gap:5px;margin-bottom:8px;">
+        <div style="min-width:56px;background:rgba(255,255,255,0.1);border-radius:5px;padding:6px 4px;text-align:center;color:white;font-size:9px;border:1px solid rgba(0,212,255,0.3);">
+          <div style="font-weight:bold;">12h</div>
+          <div style="font-size:14px;">☀️</div>
+          <div style="font-weight:bold;margin:2px 0;">22°</div>
+          <div style="color:rgba(255,255,255,0.5);font-size:8px;">💧60%</div>
+          <div style="color:rgba(255,255,255,0.5);font-size:8px;">💨15km/h</div>
+        </div>
+        <div style="min-width:56px;background:rgba(255,255,255,0.06);border-radius:5px;padding:6px 4px;text-align:center;color:white;font-size:9px;">
+          <div style="font-weight:bold;">15h</div>
+          <div style="font-size:14px;">⛅</div>
+          <div style="font-weight:bold;margin:2px 0;">25°</div>
+          <div style="color:rgba(255,255,255,0.5);font-size:8px;">💧55%</div>
+          <div style="color:rgba(255,255,255,0.5);font-size:8px;">💨20km/h</div>
+        </div>
+        <div style="min-width:56px;background:rgba(255,255,255,0.06);border-radius:5px;padding:6px 4px;text-align:center;color:white;font-size:9px;opacity:0.5;">
+          <div style="font-weight:bold;">18h</div>
+          <div style="font-size:14px;">🌦️</div>
+          <div style="font-weight:bold;margin:2px 0;">21°</div>
+          <div style="color:rgba(255,255,255,0.5);font-size:8px;">💧80%</div>
+          <div style="color:rgba(255,255,255,0.5);font-size:8px;">💨12km/h</div>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,0.3);align-self:center;">→</div>
+      </div>
+
+      <!-- 5 jours (sans détails) -->
+      <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;">5 jours</div>
+      <div style="display:flex;flex-direction:column;gap:3px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.06);border-radius:5px;padding:4px 8px;color:white;font-size:9px;">
+          <span style="width:35px;">Lun</span><span>☀️</span><span style="color:rgba(255,255,255,0.4);">16°</span><span style="font-weight:bold;"> 26°</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.06);border-radius:5px;padding:4px 8px;color:white;font-size:9px;">
+          <span style="width:35px;">Mar</span><span>🌧️</span><span style="color:rgba(255,255,255,0.4);">12°</span><span style="font-weight:bold;"> 18°</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Météo actuelle + chaque créneau horaire</h3>
+      <p>Humidité et vent aussi dans chaque carte du carrousel. Les cartes horaires sont un peu plus hautes mais très complètes.</p>
+    </div>
+  </div>
+
+  <!-- Option C : Partout -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a3a;padding:14px;border-radius:8px;font-family:sans-serif;">
+
+      <!-- Météo actuelle -->
+      <div style="text-align:center;color:white;margin-bottom:10px;">
+        <div style="font-size:11px;">☀️ &nbsp;<strong>24°C</strong> &nbsp;·&nbsp; Ciel dégagé</div>
+        <div style="display:flex;justify-content:center;gap:10px;margin-top:6px;font-size:10px;color:rgba(255,255,255,0.75);">
+          <span>💧 65%</span><span>💨 18 km/h</span><span>🌧️ 0 mm</span>
+        </div>
+      </div>
+
+      <!-- Carrousel avec détails -->
+      <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;">Aujourd'hui</div>
+      <div style="display:flex;gap:5px;margin-bottom:8px;">
+        <div style="min-width:52px;background:rgba(255,255,255,0.1);border-radius:5px;padding:5px 4px;text-align:center;color:white;font-size:8px;">
+          <div style="font-weight:bold;">12h</div><div style="font-size:13px;">☀️</div>
+          <div style="font-weight:bold;">22°</div>
+          <div style="color:rgba(255,255,255,0.5);">💧60%</div>
+          <div style="color:rgba(255,255,255,0.5);">💨15</div>
+        </div>
+        <div style="min-width:52px;background:rgba(255,255,255,0.06);border-radius:5px;padding:5px 4px;text-align:center;color:white;font-size:8px;opacity:0.7;">
+          <div style="font-weight:bold;">15h</div><div style="font-size:13px;">⛅</div>
+          <div style="font-weight:bold;">25°</div>
+          <div style="color:rgba(255,255,255,0.5);">💧55%</div>
+          <div style="color:rgba(255,255,255,0.5);">💨20</div>
+        </div>
+        <div style="font-size:9px;color:rgba(255,255,255,0.3);align-self:center;">→</div>
+      </div>
+
+      <!-- 5 jours avec humidité -->
+      <div style="font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;">5 jours</div>
+      <div style="display:flex;flex-direction:column;gap:3px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.06);border-radius:5px;padding:4px 8px;color:white;font-size:8px;">
+          <span style="width:30px;">Lun</span><span>☀️</span>
+          <span style="color:rgba(255,255,255,0.5);">💧50%</span>
+          <span style="color:rgba(255,255,255,0.5);">💨18</span>
+          <span style="color:rgba(255,255,255,0.4);">16°</span><span style="font-weight:bold;"> 26°</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.06);border-radius:5px;padding:4px 8px;color:white;font-size:8px;">
+          <span style="width:30px;">Mar</span><span>🌧️</span>
+          <span style="color:rgba(255,255,255,0.5);">💧85%</span>
+          <span style="color:rgba(255,255,255,0.5);">💨25</span>
+          <span style="color:rgba(255,255,255,0.4);">12°</span><span style="font-weight:bold;"> 18°</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Partout (actuel + horaire + 5 jours)</h3>
+      <p>Maximum d'infos partout. Très complet mais les lignes des 5 jours deviennent chargées.</p>
+    </div>
+  </div>
+
+</div>

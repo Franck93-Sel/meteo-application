@@ -1,0 +1,116 @@
+<h2>Comment afficher la météo heure par heure ?</h2>
+<p class="subtitle">Choisissez le style de mise en page qui vous plaît le plus</p>
+
+<div class="cards">
+
+  <!-- Option A : Défilement horizontal -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a3a;padding:16px;border-radius:8px;">
+      <div style="display:flex;gap:8px;overflow:hidden;">
+        <div style="min-width:64px;background:rgba(255,255,255,0.1);border-radius:8px;padding:8px;text-align:center;color:white;font-size:11px;">
+          <div style="font-weight:bold;margin-bottom:4px;">12h</div>
+          <div style="font-size:18px;">☀️</div>
+          <div style="margin-top:4px;font-weight:bold;">22°</div>
+        </div>
+        <div style="min-width:64px;background:rgba(255,255,255,0.1);border-radius:8px;padding:8px;text-align:center;color:white;font-size:11px;">
+          <div style="font-weight:bold;margin-bottom:4px;">13h</div>
+          <div style="font-size:18px;">🌤️</div>
+          <div style="margin-top:4px;font-weight:bold;">24°</div>
+        </div>
+        <div style="min-width:64px;background:rgba(255,255,255,0.1);border-radius:8px;padding:8px;text-align:center;color:white;font-size:11px;">
+          <div style="font-weight:bold;margin-bottom:4px;">14h</div>
+          <div style="font-size:18px;">⛅</div>
+          <div style="margin-top:4px;font-weight:bold;">25°</div>
+        </div>
+        <div style="min-width:64px;background:rgba(255,255,255,0.1);border-radius:8px;padding:8px;text-align:center;color:white;font-size:11px;">
+          <div style="font-weight:bold;margin-bottom:4px;">15h</div>
+          <div style="font-size:18px;">🌦️</div>
+          <div style="margin-top:4px;font-weight:bold;">21°</div>
+        </div>
+        <div style="min-width:64px;background:rgba(255,255,255,0.1);border-radius:8px;padding:8px;text-align:center;color:white;font-size:11px;opacity:0.5;">
+          <div style="font-weight:bold;margin-bottom:4px;">16h</div>
+          <div style="font-size:18px;">🌧️</div>
+          <div style="margin-top:4px;font-weight:bold;">19°</div>
+        </div>
+      </div>
+      <div style="text-align:center;color:rgba(255,255,255,0.4);font-size:10px;margin-top:6px;">← défiler →</div>
+    </div>
+    <div class="card-body">
+      <h3>A — Carrousel horizontal</h3>
+      <p>Cartes défilables de gauche à droite, comme les grandes applis météo (iPhone, Météo France). Compact et moderne.</p>
+    </div>
+  </div>
+
+  <!-- Option B : Grille -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a3a;padding:16px;border-radius:8px;">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;">
+        <div style="background:rgba(255,255,255,0.1);border-radius:6px;padding:6px;text-align:center;color:white;font-size:10px;">
+          <div style="font-weight:bold;">12h</div><div>☀️</div><div style="font-weight:bold;">22°</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);border-radius:6px;padding:6px;text-align:center;color:white;font-size:10px;">
+          <div style="font-weight:bold;">13h</div><div>🌤️</div><div style="font-weight:bold;">24°</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);border-radius:6px;padding:6px;text-align:center;color:white;font-size:10px;">
+          <div style="font-weight:bold;">14h</div><div>⛅</div><div style="font-weight:bold;">25°</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);border-radius:6px;padding:6px;text-align:center;color:white;font-size:10px;">
+          <div style="font-weight:bold;">15h</div><div>🌦️</div><div style="font-weight:bold;">21°</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);border-radius:6px;padding:6px;text-align:center;color:white;font-size:10px;">
+          <div style="font-weight:bold;">16h</div><div>🌧️</div><div style="font-weight:bold;">19°</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);border-radius:6px;padding:6px;text-align:center;color:white;font-size:10px;">
+          <div style="font-weight:bold;">17h</div><div>🌧️</div><div style="font-weight:bold;">18°</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);border-radius:6px;padding:6px;text-align:center;color:white;font-size:10px;">
+          <div style="font-weight:bold;">18h</div><div>⛅</div><div style="font-weight:bold;">20°</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);border-radius:6px;padding:6px;text-align:center;color:white;font-size:10px;">
+          <div style="font-weight:bold;">19h</div><div>🌙</div><div style="font-weight:bold;">17°</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Grille 4 colonnes</h3>
+      <p>Toutes les heures visibles d'un coup en grille. Pas de défilement, tout est affiché directement sous la météo actuelle.</p>
+    </div>
+  </div>
+
+  <!-- Option C : Liste verticale -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0a0a3a;padding:12px;border-radius:8px;">
+      <div style="display:flex;flex-direction:column;gap:5px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.1);border-radius:6px;padding:6px 10px;color:white;font-size:11px;">
+          <span style="font-weight:bold;width:30px;">12h</span>
+          <span>☀️</span>
+          <span style="flex:1;padding:0 8px;color:rgba(255,255,255,0.7);">Ciel dégagé</span>
+          <span style="font-weight:bold;">22°</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.1);border-radius:6px;padding:6px 10px;color:white;font-size:11px;">
+          <span style="font-weight:bold;width:30px;">13h</span>
+          <span>🌤️</span>
+          <span style="flex:1;padding:0 8px;color:rgba(255,255,255,0.7);">Peu nuageux</span>
+          <span style="font-weight:bold;">24°</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.1);border-radius:6px;padding:6px 10px;color:white;font-size:11px;">
+          <span style="font-weight:bold;width:30px;">14h</span>
+          <span>⛅</span>
+          <span style="flex:1;padding:0 8px;color:rgba(255,255,255,0.7);">Nuageux</span>
+          <span style="font-weight:bold;">25°</span>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.1);border-radius:6px;padding:6px 10px;color:white;font-size:11px;">
+          <span style="font-weight:bold;width:30px;">15h</span>
+          <span>🌦️</span>
+          <span style="flex:1;padding:0 8px;color:rgba(255,255,255,0.7);">Averses</span>
+          <span style="font-weight:bold;">21°</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Liste verticale</h3>
+      <p>Chaque heure sur une ligne avec l'icône, la description et la température. Plus lisible, mais l'app s'allonge.</p>
+    </div>
+  </div>
+
+</div>
