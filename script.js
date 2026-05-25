@@ -21,12 +21,9 @@ function getPrecip(slot) {
   return slot.rain && slot.rain["3h"] ? slot.rain["3h"].toFixed(1) : "0";
 }
 
-/** Retourne tous les créneaux dont la date correspond au premier créneau (= aujourd'hui) */
+/** Retourne les 8 prochains créneaux (= 24h), toujours à partir du premier dispo */
 function getTodaySlots(list) {
-  const today = list[0].dt_txt.slice(0, 10);
-  return list.filter(function (slot) {
-    return slot.dt_txt.startsWith(today);
-  });
+  return list.slice(0, 8);
 }
 
 /** Retourne le nom court du jour en français à partir d'un dt_txt ("2026-05-26 12:00:00") */
