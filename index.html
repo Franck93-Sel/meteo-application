@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,9 +13,28 @@
         <input type="text" id="city" placeholder="Entrez le nom de la ville" />
         <input type="submit" value="Résultat Météo" />
       </form>
+
       <div class="weather-result" id="weatherResult">
-        <img id="icon" alt="Icône météo" />
-        <p id="resultat"></p>
+
+        <!-- Section 1 : météo actuelle -->
+        <div class="current-weather">
+          <img id="icon" alt="Icône météo" />
+          <p id="resultat"></p>
+          <div class="current-details" id="currentDetails"></div>
+        </div>
+
+        <!-- Section 2 : carrousel horaire -->
+        <div class="hourly-section" id="hourlySection">
+          <p class="section-title">Aujourd'hui</p>
+          <div class="hourly-carousel" id="hourlyCarousel"></div>
+        </div>
+
+        <!-- Section 3 : prévisions 5 jours -->
+        <div class="daily-section" id="dailySection">
+          <p class="section-title">5 prochains jours</p>
+          <div class="daily-list" id="dailyList"></div>
+        </div>
+
       </div>
     </div>
     <script src="script.js"></script>
