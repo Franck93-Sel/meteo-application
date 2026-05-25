@@ -42,8 +42,8 @@ function getDailyMinMax(list, dateStr) {
   });
   const temps = slots.map(function (s) { return s.main.temp; });
   return {
-    min: Math.round(Math.min.apply(null, temps)),
-    max: Math.round(Math.max.apply(null, temps)),
+    min: Math.round(Math.min(...temps)),
+    max: Math.round(Math.max(...temps)),
   };
 }
 
@@ -52,17 +52,17 @@ function getDailyMinMax(list, dateStr) {
  * Préfère le créneau de 12h00, sinon prend le premier dispo pour ce jour.
  */
 function getDailySlots(list) {
-  var seen = [];
-  var result = [];
+  const seen = [];
+  const result = [];
 
-  for (var i = 0; i < list.length; i++) {
-    var slot = list[i];
-    var date = slot.dt_txt.slice(0, 10);
+  for (let i = 0; i < list.length; i++) {
+    const slot = list[i];
+    const date = slot.dt_txt.slice(0, 10);
 
     if (seen.indexOf(date) !== -1) continue;
     seen.push(date);
 
-    var noonSlot = list.find(function (s) {
+    const noonSlot = list.find(function (s) {
       return s.dt_txt === date + " 12:00:00";
     });
     result.push(noonSlot || slot);
@@ -76,13 +76,13 @@ function getDailySlots(list) {
 
 /** Affiche la météo actuelle (premier créneau de la liste) */
 function renderCurrentWeather(list, cityName) {
-  var slot = list[0];
-  var temp = Math.round(slot.main.temp);
-  var description = slot.weather[0].description;
-  var iconCode = slot.weather[0].icon;
-  var humidity = slot.main.humidity;
-  var wind = formatWind(slot.wind.speed);
-  var precip = getPrecip(slot);
+  const slot = list[0];
+  const temp = Math.round(slot.main.temp);
+  const description = slot.weather[0].description;
+  const iconCode = slot.weather[0].icon;
+  const humidity = slot.main.humidity;
+  const wind = formatWind(slot.wind.speed);
+  const precip = getPrecip(slot);
 
   resultat.textContent =
     "À " + cityName + ", il fait " + temp + "°C avec " + description + ".";
@@ -101,11 +101,11 @@ function renderCurrentWeather(list, cityName) {
 function renderHourlyCarousel(slots) {
   hourlyCarousel.innerHTML = slots
     .map(function (slot) {
-      var hour = slot.dt_txt.slice(11, 13) + "h";
-      var temp = Math.round(slot.main.temp);
-      var iconCode = slot.weather[0].icon;
-      var humidity = slot.main.humidity;
-      var wind = formatWind(slot.wind.speed);
+      const hour = slot.dt_txt.slice(11, 13) + "h";
+      const temp = Math.round(slot.main.temp);
+      const iconCode = slot.weather[0].icon;
+      const humidity = slot.main.humidity;
+      const wind = formatWind(slot.wind.speed);
 
       return (
         '<div class="hourly-card">' +
@@ -123,16 +123,16 @@ function renderHourlyCarousel(slots) {
 
 /** Remplit le bloc 5 jours */
 function renderDailyForecast(list) {
-  var dailySlots = getDailySlots(list);
+  const dailySlots = getDailySlots(list);
 
   dailyList.innerHTML = dailySlots
     .map(function (slot) {
-      var date = slot.dt_txt.slice(0, 10);
-      var dayName = getDayName(slot.dt_txt);
-      var iconCode = slot.weather[0].icon;
-      var humidity = slot.main.humidity;
-      var wind = formatWind(slot.wind.speed);
-      var minMax = getDailyMinMax(list, date);
+      const date = slot.dt_txt.slice(0, 10);
+      const dayName = getDayName(slot.dt_txt);
+      const iconCode = slot.weather[0].icon;
+      const humidity = slot.main.humidity;
+      const wind = formatWind(slot.wind.speed);
+      const minMax = getDailyMinMax(list, date);
 
       return (
         '<div class="daily-row">' +
@@ -165,7 +165,7 @@ form.addEventListener("submit", function (event) {
   hourlyCarousel.innerHTML = "";
   dailyList.innerHTML = "";
 
-  var city = cityInput.value.trim();
+  const city = cityInput.value.trim();
 
   if (city === "") {
     resultat.textContent = "Veuillez saisir une ville.";
@@ -173,7 +173,7 @@ form.addEventListener("submit", function (event) {
     return;
   }
 
-  var url =
+  const url =
     "https://api.openweathermap.org/data/2.5/forecast" +
     "?q=" + city +
     "&units=metric" +
@@ -193,8 +193,14 @@ form.addEventListener("submit", function (event) {
         return;
       }
 
-      var cityName = data.city.name;
-      var list = data.list;
+      const cityName = data.city.name;
+      const list = data.list;
+
+      if (!list || list.length === 0) {
+        resultat.textContent = "Aucune prévision disponible pour cette ville.";
+        weatherResult.classList.add("show");
+        return;
+      }
 
       renderCurrentWeather(list, cityName);
       renderHourlyCarousel(getTodaySlots(list));
